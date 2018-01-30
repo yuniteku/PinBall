@@ -11,9 +11,7 @@ public class BallScore : MonoBehaviour
 
 
     public Text scoreText;
-    private int score = 10;
-
- // GameObject tag1 = GameObject.Find("Ball");
+    private int score = 0;
 
 
     // Use this for initialization
@@ -35,12 +33,6 @@ public class BallScore : MonoBehaviour
     }
 
 
-    // ポイントの追加
-    public void AddPoint(int point)
-    {
-        score = score + point;
-    }
- 
 
 
     //衝突時に呼ばれる関数
@@ -51,7 +43,7 @@ public class BallScore : MonoBehaviour
 
         string scoreTag = collision.gameObject.tag;
 
-      //  Debug.Log(collision.gameObject.tag);
+
 
         if (collision.gameObject.tag == scoreTag)
         {
@@ -59,11 +51,11 @@ public class BallScore : MonoBehaviour
 
             if (scoreTag == "SmallStarTag")
             {
-                score += 10;
+                score += 1;
             }
             else if (scoreTag == "LargeStarTag")
             {
-                score += 15;
+                score += 10;
             }
             else if (scoreTag == "SmallCloudTag")
             {
@@ -71,7 +63,7 @@ public class BallScore : MonoBehaviour
             }
             else if (scoreTag == "LargeCloudTAg")
             {
-                score += 25;
+                score += 50;
 
             }
         }
